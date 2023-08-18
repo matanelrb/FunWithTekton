@@ -9,8 +9,9 @@ spec:
       name: client
       script: |
         #!/usr/bin/env sh
-        cd /workspace/source
-        docker-compose up -d --build
+        cd /workspace/source/fastapi
+        ls -l
+        docker-compose -f compose.yaml up -d --build
         docker ps
         sleep 20
         docker ps

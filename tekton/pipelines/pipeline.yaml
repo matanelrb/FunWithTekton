@@ -16,6 +16,8 @@ spec:
     - name: dind
       taskRef:
         name: dind
+      runAfter:
+        - clone
       workspaces:
         - name: source
           workspace: source
