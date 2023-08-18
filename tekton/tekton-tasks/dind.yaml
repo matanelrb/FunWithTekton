@@ -10,8 +10,10 @@ spec:
       script: |
         #!/usr/bin/env sh
         cd /workspace/source
-        docker-compose up -d
+        docker-compose up -d --build
+        docker ps
         sleep 20
+        docker ps
       volumeMounts:
         - mountPath: /var/run/
           name: dind-socket
