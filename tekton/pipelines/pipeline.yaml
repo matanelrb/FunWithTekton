@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: dind-pipeline
+spec:
+  tasks:
+    - name: clone
+      taskRef:
+        name: git-clone
+      params:
+        - name: url
+          value: https://github.com/matanelrb/FunWithTekton
+      workspaces:
+        - name: output
+          workspace: source
+    - name: dind
+      taskRef:
+        name: dind
+      workspaces:
+        - name: source
+          workspace: source
+  workspaces:
+    - name: source
